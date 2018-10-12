@@ -36,8 +36,5 @@ Percent; ROOMS - Total housing units - 1 room -> rooms-percent-1_room-of-total_h
 
 There were some columns in the social characteristics tables (DP02 and DP02R) that did not match, and have been renamed or dropped (if a common name for the columns could not be found). The affected columns are mostly around the _year of entry_ and _residence 1 year ago_ data fields.
 
-The five separate tables are available for download [here](https://github.com).
-
-
 
 --------------------------------------------------------------
