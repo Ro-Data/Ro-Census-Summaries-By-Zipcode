@@ -11,16 +11,22 @@ We’ve pulled, cleaned, consolidated, and reformatted the Census Bureau data. T
 - demo.txt (Census Bureau Table DP05)
 - rural_urban.txt (Census Bureau Table P2)
 
-# What is a ZCTA?
+# What is a ZCTA5?
 
-Demographic data by ZIP code can be useful in getting a better understanding of your members, but most data sources we found were either sparse in content, or costly to acquire. The most complete free-to-use data sources that we could find were the American Community Survey (ACS) 5-year estimates from the United States Census Bureau, which contain social, economic, housing, and other demographic information. We also used the P2 2010 Census Summary Table to get information on how rural/urban a particular ZCTA was. Unfortunately, the rural/urban summary calculation is only done once every decade, so the data is only as recent as 2010.
-
-The Census Bureau does not have information by Zip Codes, so the next best alternative was to tabulate this information by Zip Code Tabulation Areas (ZCTAs). ZCTAs are generalized areal representations of United States Postal Service (USPS) ZIP Code service areas. There are approximately 42,000 ZIP Codes and 32,000 ZCTAs. The reason that there is not one ZCTA for every ZIP Code is that PO Boxes are excluded in ZCTAs, since only populated areas are included in the Census data. If you would like to read more about ZCTAs, please refer to [this link.](https://www.census.gov/geo/reference/zctas.html) The Census Bureau also provides an [animation that shows how ZCTAs are formed.](https://www.census.gov/geo/reference/zcta/zcta_delin_anim.html)
-
-We used the 5-year estimates as opposed to the 1-year estimates because although they are less current, they are the most reliable and precise, containing data for all ZCTA's. If you would like to get a better understanding of the differences between the 1-year, 3-year, and 5-year estimates, please refer to [this link.](https://www.census.gov/programs-surveys/acs/guidance/estimates.html) For more general information on the ACS estimate files, please refer to [this handbook.](https://www.census.gov/content/dam/Census/library/publications/2018/acs/acs_general_handbook_2018_ch03.pdf)
+**None of these tables actually have a field called “ZIP code.” Rather, they have a field called “ZCTA5”.** A ZCTA5 (or ZCTA) can be thought of as interchangeable with a zip code given following caveats:
+- There are no ZCTAs for PO Box ZIP codes - this means that for 42,000 US ZIP Codes there are 32,000 ZCTAs.
+- ZCTAs, which stand for Zip Code Tabulation Areas, are based on zip codes but don’t necessarily follow exact zip code boundaries. If you would like to read more about ZCTAs, please refer to [this link.](https://www.census.gov/geo/reference/zctas.html). The Census Bureau also provides an [animation that shows how ZCTAs are formed.](https://www.census.gov/geo/reference/zcta/zcta_delin_anim.html)
 
 # How can I load this data into tables on AWS Redshift?
-To load this data into tables on AWS Redshift, we stored it in an Amazon S3 bucket, and then used a COPY command to load data into the table.
+To load this data into tables on AWS Redshift, we first stored it in an Amazon S3 bucket, and then used a COPY command to load the data.
+```
+COPY [AWS Redshift destination]
+FROM [S3 Bucket source]
+ACCESS_KEY_ID ''
+SECRET_ACCESS_KEY ''
+DELIMITER '\t'
+IGNOREHEADER 1;
+```
 
 # How can I load this data into Pandas?
 ```
@@ -36,7 +42,7 @@ The rural/urban summary calculation is only done once every decade, so that data
 
 # General column naming rules
 
-In addition, the column names aren't particularly easy to use for data analysis and don't necessarily maintain all the information for that field (such as what denominator is used for percent fields), so we reformatted them while attempting to keep the column names as detailed as possible.
+The Census Bureau column names aren't particularly easy to use for data analysis and don't necessarily maintain all the information for that field (such as what denominator is used for percent fields), so we reformatted them while attempting to keep the column names as detailed as possible.
 
 ```
 Format:
