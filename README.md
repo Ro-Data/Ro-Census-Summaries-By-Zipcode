@@ -20,8 +20,8 @@ We’ve pulled, cleaned, consolidated, and reformatted the Census Bureau data. T
 # How can I load this data into tables on AWS Redshift?
 To load this data into tables on AWS Redshift, we first stored it in an Amazon S3 bucket, and then used a COPY command to load the data.
 ```
-COPY [AWS Redshift destination]
-FROM [S3 Bucket source]
+COPY 'AWS Redshift destination'
+FROM 'S3 Bucket source'
 ACCESS_KEY_ID ''
 SECRET_ACCESS_KEY ''
 DELIMITER '\t'
