@@ -1,6 +1,6 @@
 # Overview
 
-Demographic data by ZIP code can be useful in getting a better understanding of your members or/and user base. Are your members from urban or rural areas? How much money do they likely make? How educated are they? Where do they fall as far as demographics go?
+Demographic data by ZIP code can be useful in getting a better understanding of your members and/or user base. Are your members from urban or rural areas? How much money do they likely make? How educated are they? Where do they fall as far as demographics go?
 
 The [Census Bureau American FactFinder](https://factfinder.census.gov/faces/nav/jsf/pages/community_facts.xhtml) is a free source of comprehensive and detailed data. Unfortunately, it’s not particularly easy to use in its raw format.
 
