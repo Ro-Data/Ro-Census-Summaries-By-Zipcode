@@ -15,7 +15,7 @@ We’ve pulled, cleaned, consolidated, and reformatted the Census Bureau data. T
 
 **None of these tables actually have a field called “ZIP code.” Rather, they have a field called “ZCTA5”.** A ZCTA5 (or ZCTA) can be thought of as interchangeable with a zip code given following caveats:
 - There are no ZCTAs for PO Box ZIP codes - this means that for 42,000 US ZIP Codes there are 32,000 ZCTAs.
-- ZCTAs, which stand for Zip Code Tabulation Areas, are based on zip codes but don’t necessarily follow exact zip code boundaries. If you would like to read more about ZCTAs, please refer to [this link.](https://www.census.gov/geo/reference/zctas.html). The Census Bureau also provides an [animation that shows how ZCTAs are formed.](https://www.census.gov/geo/reference/zcta/zcta_delin_anim.html)
+- ZCTAs, which stand for Zip Code Tabulation Areas, are based on zip codes but don’t necessarily follow exact zip code boundaries. If you would like to read more about ZCTAs, please refer to [this link](https://www.census.gov/geo/reference/zctas.html). The Census Bureau also provides an [animation that shows how ZCTAs are formed.](https://www.census.gov/geo/reference/zcta/zcta_delin_anim.html)
 
 # How can I load this data into tables on AWS Redshift?
 To load this data into tables on AWS Redshift, we first stored it in an Amazon S3 bucket, and then used a COPY command to load the data.
